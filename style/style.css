@@ -1,0 +1,291 @@
+/* =========================
+   IMPORT CZCIONKI ROBOTO
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* =========================
+   RESET
+========================= */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* =========================
+   BODY – LIGHT THEME + FLEX LAYOUT
+========================= */
+html,
+body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background-color: #d4d4d4;
+	background-image: url('../templates/chat.png');
+	background-size: cover;
+	background-position: center;
+	color: #1e293b;
+	font-family: 'Roboto'; /* Użycie Roboto dla całej strony */
+	font-weight: 700;
+}
+
+/* =========================
+   WRAPPER – TREŚĆ + STOPKA
+========================= */
+.wrapper {
+	flex: 1;
+}
+
+/* =========================
+   MENU
+========================= */
+.menu {
+	background: rgba(255, 255, 255, 0.85);
+	backdrop-filter: blur(8px);
+	padding: 10px;
+	max-width: 1200px;
+	margin: 20px auto;
+	border-radius: 20px;
+	font-size: 25px;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.menu ul {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	flex-wrap: wrap;
+}
+
+.menu li {
+	border-right: 1px solid rgba(255, 255, 255, 0.85);
+}
+
+.menu li:last-child {
+	border-right: none;
+}
+
+.menu a {
+	display: block;
+	padding: 15px 40px;
+	color: #00547e;
+	text-decoration: none;
+	transition: 0.2s ease;
+}
+
+.menu a:hover {
+	background-color: #e0f2fe;
+	border-radius: 20px;
+	color: #1e293b;
+}
+
+.menu img {
+	display: block;
+	width: 210px;
+	height: 62px;
+}
+@media (max-width: 600px) {
+	.menu ul {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.menu li:first-child {
+		margin-bottom: 10px;
+	}
+
+	.menu ul li:not(:first-child) {
+		display: inline-block;
+	}
+
+	.menu ul {
+		row-gap: 8px;
+	}
+
+	.menu ul li:not(:first-child) a {
+		padding: 8px 12px;
+		font-size: 14px;
+	}
+}
+/* =========================
+   WSPÓLNA SEKCJA TREŚCI
+========================= */
+.content {
+	max-width: 900px;
+	margin: 60px auto;
+	padding: 0 20px;
+	text-align: center;
+}
+
+/* =========================
+   KARTY (UNIWERSALNE)
+========================= */
+.card {
+	background: rgba(255, 255, 255, 0.9);
+	color: #1e293b;
+	border-radius: 20px;
+	padding: 30px;
+	margin-bottom: 30px;
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+	backdrop-filter: blur(6px);
+}
+
+.card h1,
+.card h2,
+.card h3 {
+	color: #00547e;
+	margin-bottom: 20px;
+	font-weight: 500;
+}
+
+.card p,
+.card li {
+	font-size: 18px;
+	line-height: 1.6;
+	color: #334155;
+}
+
+.card p a {
+	color: #00547e;
+}
+
+.card ul {
+	list-style: none;
+	margin-top: 15px;
+	padding: 0;
+}
+
+.card ul li {
+	margin-bottom: 10px;
+}
+
+/* Kontener kart w rzędzie */
+.cards-row {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	flex-wrap: wrap; /* dla responsywności */
+}
+
+/* Karty w rzędzie */
+.cards-row .card {
+	flex: 1 1 300px; /* minimalna szerokość 300px zamiast 250px */
+	max-width: 350px; /* maksymalna szerokość karty */
+	max-height: 200px; /* początkowa wysokość */
+	overflow: hidden;
+	transition:
+		max-height 1s ease,
+		box-shadow 0.3s ease;
+	cursor: pointer;
+}
+
+/* Efekt rozwinięcia po najechaniu */
+.cards-row .card:hover {
+	max-height: 1000px; /* dostosuj w zależności od zawartości */
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   STOPKA
+========================= */
+.footer {
+	background-color: #f1f5f9;
+	padding: 20px 20px 15px;
+	color: #334155;
+	border-top: 1px solid #e2e8f0;
+	font-family: 'Roboto', sans-serif; /* wymuszenie czcionki w stopce */
+}
+
+.footer-content {
+	max-width: 900px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 15px;
+}
+
+.footer-card {
+	background: rgba(255, 255, 255, 0.85);
+	border-radius: 20px;
+	padding: 15px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+	font-family: 'Roboto', sans-serif; /* wymuszenie czcionki w kartach stopki */
+}
+
+.footer-card h3,
+.footer-card h2 {
+	color: #00547e;
+	margin-bottom: 10px;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.footer-card p,
+.footer-card li {
+	font-size: 14px;
+	line-height: 1.5;
+	color: #334155;
+}
+
+.footer-card ul {
+	list-style: none;
+	padding: 0;
+}
+
+.footer-card ul li {
+	margin-bottom: 6px;
+}
+
+.footer-card a {
+	color: #334155;
+	text-decoration: none;
+}
+
+.footer-card a:hover {
+	color: #00547e;
+}
+
+/* Dolna belka */
+.footer-bottom {
+	margin-top: 20px;
+	padding-top: 10px;
+	border-top: 1px solid #e2e8f0;
+	text-align: center;
+	font-size: 13px;
+	color: #000000;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* =========================
+   RESPONSYWNOŚĆ
+========================= */
+@media (max-width: 600px) {
+	.menu a {
+		padding: 10px 15px;
+		font-size: 15px;
+	}
+
+	.content,
+	.wrapper {
+		padding: 0 10px;
+	}
+
+	.card {
+		padding: 15px;
+	}
+
+	.footer-card {
+		padding: 10px;
+	}
+
+	.footer-content {
+		grid-template-columns: 1fr;
+	}
+}
