@@ -1,50 +1,38 @@
-/* =========================
-   IMPORT CZCIONKI ROBOTO
-========================= */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-/* =========================
-   RESET
-========================= */
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
-/* =========================
-   BODY – LIGHT THEME + FLEX LAYOUT
-========================= */
 html,
 body {
 	height: 100%;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	color: #1f2937;
 }
 
 body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	background-color: #d4d4d4;
+
+	/* Tło powtarzające się */
 	background-image: url('../templates/chat.png');
-	background-size: cover;
-	background-position: center;
-	color: #1e293b;
-	font-family: 'Roboto'; /* Użycie Roboto dla całej strony */
-	font-weight: 700;
+	background-repeat: repeat; /* powtarza w poziomie i pionie */
+	background-position: top left; /* start powtarzania w lewym górnym rogu */
+	background-size: auto; /* zachowaj naturalny rozmiar obrazka */
+	background-color: #f4f6f8; /* fallback jeśli obrazek się nie wczyta */
 }
 
-/* =========================
-   WRAPPER – TREŚĆ + STOPKA
-========================= */
 .wrapper {
 	flex: 1;
 }
 
-/* =========================
-   MENU
-========================= */
 .menu {
-	background: rgba(255, 255, 255, 0.85);
+	background: rgba(255, 255, 255, 0.95);
 	backdrop-filter: blur(8px);
 	padding: 10px;
 	max-width: 1200px;
@@ -77,13 +65,13 @@ body {
 	padding: 15px 40px;
 	color: #00547e;
 	text-decoration: none;
-	transition: 0.2s ease;
+	transition: 0.3s ease;
 }
 
 .menu a:hover {
-	background-color: #e0f2fe;
+	background-color: #0284c7;
+	color: #ffffff;
 	border-radius: 20px;
-	color: #1e293b;
 }
 
 .menu img {
@@ -91,6 +79,7 @@ body {
 	width: 210px;
 	height: 62px;
 }
+
 @media (max-width: 600px) {
 	.menu ul {
 		flex-direction: column;
@@ -114,9 +103,7 @@ body {
 		font-size: 14px;
 	}
 }
-/* =========================
-   WSPÓLNA SEKCJA TREŚCI
-========================= */
+
 .content {
 	max-width: 900px;
 	margin: 60px auto;
@@ -124,83 +111,71 @@ body {
 	text-align: center;
 }
 
-/* =========================
-   KARTY (UNIWERSALNE)
-========================= */
 .card {
-	background: rgba(255, 255, 255, 0.9);
-	color: #1e293b;
+	background: rgba(255, 255, 255, 0.95);
+	color: #1f2937;
 	border-radius: 20px;
 	padding: 30px;
 	margin-bottom: 30px;
 	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 	backdrop-filter: blur(6px);
+	transition: all 0.3s ease;
 }
 
 .card h1,
 .card h2,
 .card h3 {
 	color: #00547e;
-	margin-bottom: 20px;
 	font-weight: 500;
+	margin-bottom: 20px;
 }
 
 .card p,
 .card li {
+	color: #1f2937;
 	font-size: 18px;
 	line-height: 1.6;
-	color: #334155;
+	list-style-type: none;
 }
 
-.card p a {
+.card a {
+	color: #0284c7;
+	transition: 0.2s ease;
+	text-decoration: none;
+}
+
+.card a:hover {
 	color: #00547e;
 }
 
-.card ul {
-	list-style: none;
-	margin-top: 15px;
-	padding: 0;
-}
-
-.card ul li {
-	margin-bottom: 10px;
-}
-
-/* Kontener kart w rzędzie */
 .cards-row {
 	display: flex;
 	gap: 20px;
 	justify-content: center;
-	flex-wrap: wrap; /* dla responsywności */
+	flex-wrap: wrap;
 }
 
-/* Karty w rzędzie */
 .cards-row .card {
-	flex: 1 1 300px; /* minimalna szerokość 300px zamiast 250px */
-	max-width: 350px; /* maksymalna szerokość karty */
-	max-height: 200px; /* początkowa wysokość */
+	flex: 1 1 300px;
+	max-width: 350px;
+	max-height: 200px;
 	overflow: hidden;
-	transition:
-		max-height 1s ease,
-		box-shadow 0.3s ease;
 	cursor: pointer;
+	transition:
+		max-height 0.5s ease,
+		box-shadow 0.3s ease;
 }
 
-/* Efekt rozwinięcia po najechaniu */
 .cards-row .card:hover {
-	max-height: 1000px; /* dostosuj w zależności od zawartości */
+	max-height: 1000px;
 	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* =========================
-   STOPKA
-========================= */
 .footer {
-	background-color: #f1f5f9;
-	padding: 20px 20px 15px;
-	color: #334155;
+	background-color: #f4f6f8;
+	padding: 20px;
+	color: #1f2937;
 	border-top: 1px solid #e2e8f0;
-	font-family: 'Roboto', sans-serif; /* wymuszenie czcionki w stopce */
 }
 
 .footer-content {
@@ -212,26 +187,24 @@ body {
 }
 
 .footer-card {
-	background: rgba(255, 255, 255, 0.85);
+	background: rgba(255, 255, 255, 0.9);
 	border-radius: 20px;
 	padding: 15px;
 	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
-	font-family: 'Roboto', sans-serif; /* wymuszenie czcionki w kartach stopki */
 }
 
-.footer-card h3,
-.footer-card h2 {
+.footer-card h2,
+.footer-card h3 {
 	color: #00547e;
-	margin-bottom: 10px;
-	font-size: 18px;
 	font-weight: 500;
+	margin-bottom: 10px;
 }
 
 .footer-card p,
 .footer-card li {
 	font-size: 14px;
 	line-height: 1.5;
-	color: #334155;
+	color: #1f2937;
 }
 
 .footer-card ul {
@@ -244,28 +217,24 @@ body {
 }
 
 .footer-card a {
-	color: #334155;
+	color: #0284c7;
 	text-decoration: none;
+	transition: 0.2s ease;
 }
 
 .footer-card a:hover {
 	color: #00547e;
 }
 
-/* Dolna belka */
 .footer-bottom {
 	margin-top: 20px;
 	padding-top: 10px;
 	border-top: 1px solid #e2e8f0;
 	text-align: center;
 	font-size: 13px;
-	color: #000000;
-	font-family: 'Roboto', sans-serif;
+	color: #1f2937;
 }
 
-/* =========================
-   RESPONSYWNOŚĆ
-========================= */
 @media (max-width: 600px) {
 	.menu a {
 		padding: 10px 15px;
