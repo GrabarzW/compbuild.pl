@@ -1,13 +1,2 @@
-# robots.txt dla strony CoreBuild / CompBuild
-
 User-agent: *
-Disallow: /css/
-Disallow: /templates/
-
-# Pozwól indeksować wszystkie strony HTML w root
-Allow: /index.html
-Allow: /kontakt.html
-Allow: /o_nas.html
-Allow: /regulamin.html
-Allow: /rodo.html
-Allow: /uslugi.html
+Allow: /
